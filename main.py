@@ -1,6 +1,6 @@
 # reading text file
 import string
-
+from collections import Counter
 text = open("read.txt", encoding="utf-8").read()
 
 # converting to lowercase
@@ -38,3 +38,9 @@ with open('emotions.txt', 'r') as file:
         clear_line = line.replace("\n", '').replace(",", '').replace("'", '').strip()
         word, emotion = clear_line.split(':')
         print("Word :"+ word + " Emotion :"+ emotion)
+
+        if word in final_words:
+            emotion_list.append(emotion)
+print(emotion_list)
+w = Counter(emotion_list)
+print(w)
